@@ -39,7 +39,7 @@ a {
 .wrapper {
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
   margin: auto;
   max-width: 1440px;
   width: 100%;
@@ -344,4 +344,55 @@ label {
   bottom: 0;
   width: 110%;
   height: auto;
+}
+
+/* SECTION 4 */
+
+.slider {
+  width: 100%;
+  min-height: 40rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+.slider-img.active {
+  opacity: 1;
+}
+
+.slider img {
+  width: 100%; /* Добавлено для обеспечения правильного отображения изображений */
+  height: 100%; /* Или height: 100% для заполнения контейнера */
+  object-fit: cover; /* Для правильного отображения изображений */
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10; /* Убедитесь, что они выше других элементов */
+}
+
+.prev,
+.next {
+  cursor: pointer; /* Указатель при наведении */
+  max-width: 10rem;
+  height: auto;
+}
+
+.controls img {
+  filter: brightness(0) invert(1); /* Применяет эффект инверсии цвета */
 }
