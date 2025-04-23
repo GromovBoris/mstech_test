@@ -47,31 +47,49 @@ a {
 
 section {
   display: flex;
+  /* flex-wrap: wrap; */
 }
 
-.img-container {
-  max-width: 35%;
+.img-container,
+.img-cargo {
+  /* width: 35%; */
+  height: 100%;
   overflow: hidden;
+  position: relative;
+}
+
+/* .img-container {
+  flex: 1;
+} */
+
+.img-cargo {
+  width: 35%;
 }
 
 .img-container > img {
   display: block;
+  transition: transform 7s ease;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.img-cargo > img {
+  display: block;
+  width: auto;
+  height: 100%;
   object-fit: cover;
   transition: transform 7s ease;
 }
 
-.img-container:hover > img {
+.img-container:hover > img,
+.img-cargo:hover > img {
   transform: scale(1.3);
 }
 
 .button {
   width: 100%;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .order {
@@ -109,29 +127,33 @@ button:hover {
 .header {
   position: sticky;
   top: 0;
-  width: 101%;
+  max-width: 100%;
   display: flex;
   background-color: rgba(255, 255, 255, 0);
   justify-content: flex-start;
   align-items: center;
   padding: 2em;
   z-index: 111;
-  transition: background-color 1s ease, margin-left 1s ease-in-out;
+  transition: background-color 1s ease;
 }
 
 .sticky {
   background-color: rgba(51, 51, 51, 1);
+  /* justify-content: space-between; */
 }
 
 .logo {
+  /* flex: 1; */
   margin: 2rem;
   margin-right: 2rem;
+  transition: margin-right 1s ease;
 }
 
 .logo > a {
   font-size: 3rem;
   font-weight: bold;
   cursor: default;
+  transition: font-size 1s ease;
 }
 
 .logo-bottom > a {
@@ -139,12 +161,9 @@ button:hover {
 }
 
 .nav {
-  margin-left: 5rem;
+  /* flex: 1; */
+  margin-left: 3rem;
   transition: margin-left 1s ease-in-out;
-}
-
-header.sticky .nav {
-  margin-left: 35rem;
 }
 
 .nav > ul {
@@ -152,18 +171,19 @@ header.sticky .nav {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .nav > ul > li {
-  margin-left: 2em;
+  margin-left: 2rem;
   transition: transform 1s ease;
 }
 
 .nav > ul > li > a {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   position: relative;
+  transition: font-size 1s ease;
 }
 
 .nav > ul > li a::before {
@@ -195,7 +215,7 @@ header.sticky .nav {
 .supply {
   display: flex;
   flex-direction: column;
-  margin: 15% 5% 5% 5%;
+  margin: 15rem 5rem 5rem 5rem;
 }
 
 .supply > ul {
@@ -234,6 +254,8 @@ header.sticky .nav {
 
 .second {
   background-color: #282829;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 .about {
@@ -267,6 +289,8 @@ header.sticky .nav {
 
 .info-icon {
   margin-right: 1em;
+  width: 2rem;
+  height: auto;
 }
 
 .info-text {
@@ -295,7 +319,8 @@ header.sticky .nav {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 65%;
+  /* width: 65%; */
+  flex: 1;
   height: 80%;
   padding: 2rem 6rem;
 }
@@ -311,6 +336,7 @@ header.sticky .nav {
 form {
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 
 input[type="text"],
@@ -460,18 +486,12 @@ footer {
   display: grid;
   align-items: center;
   margin: 1rem 3rem;
-}
-
-/* .footer-social-element {
-  flex: 1;
-  max-width: 15%;
-} */
-
-.footer-social,
-.footer-docs {
-  /* justify-content: space-between; */
   grid-template-columns: repeat(13, 1fr);
   gap: 2rem;
+}
+
+.footer-docs {
+  font-size: 0.7rem;
 }
 
 .item {
@@ -505,4 +525,235 @@ footer {
 
 .footer-docs {
   justify-content: space-around;
+}
+
+/* ADAPTIVE  */
+
+@media (max-width: 1350px) {
+  .about {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .logo > a {
+    font-size: 2rem;
+  }
+
+  .news > h2 {
+    font-size: 2rem;
+  }
+
+  .news > h2 .line-break {
+    display: none;
+  }
+}
+
+@media (max-width: 1250px) {
+  .nav > ul > li > a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .news {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .about {
+    font-size: 0.8rem;
+  }
+
+  .news > h2 {
+    font-size: 1.5rem;
+  }
+
+  .subscribe input[type="text"],
+  .subscribe input[type="email"] {
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .img-cargo {
+    width: 45%;
+  }
+
+  .header:not(.sticky) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header:not(.sticky) .nav {
+    margin: 0;
+  }
+}
+
+@media (max-width: 950px) {
+  .about {
+    font-size: 0.7rem;
+  }
+
+  .supply > h1 {
+    font-size: 1.5rem;
+  }
+
+  .supply > h2 {
+    font-size: 1rem;
+  }
+
+  .supply > ul > li {
+    font-size: 0.7rem;
+  }
+
+  .news > h2 {
+    font-size: 1rem;
+  }
+
+  .subscribe input[type="text"],
+  .subscribe input[type="email"] {
+    height: 1rem;
+    font-size: 0.8rem;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+  .subscribe button {
+    height: 2rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 900px) {
+  input[type="text"],
+  input[type="email"] {
+    /* padding: 0.5rem; */
+    margin-bottom: 0.5rem;
+  }
+
+  .slider {
+    min-height: 30rem;
+  }
+
+  .prev,
+  .next {
+    max-width: 8rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .second {
+    flex-direction: column;
+  }
+
+  .supply {
+    order: 2;
+    margin: 5rem;
+  }
+
+  .img-cargo {
+    order: 1;
+  }
+
+  .order.top {
+    width: 100%;
+  }
+
+  .first {
+    flex-direction: column;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .header:not(.sticky) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .img-cargo,
+  .img-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .img-cargo > img,
+  .img-container > img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .about {
+    font-size: 1.5rem;
+    max-width: 100%;
+    margin: 5rem 0;
+  }
+
+  .about > ul {
+    margin-bottom: 2rem;
+  }
+
+  .overlay-container {
+    display: none;
+  }
+
+  .form {
+    margin: 4rem 6rem;
+    height: auto;
+  }
+
+  .news {
+    width: 100%;
+    /* flex: 1; */
+    height: auto;
+    padding: 1rem 3rem;
+  }
+
+  .news > h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 0;
+  }
+
+  .nav {
+    margin: 2rem;
+    margin-left: 0;
+  }
+
+  .header:not(.sticky) .nav {
+    margin: 2rem;
+    margin-left: 0;
+  }
+
+  .slider {
+    min-height: 20rem;
+  }
+
+  .prev,
+  .next {
+    max-width: 5rem;
+  }
 }
