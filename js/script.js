@@ -86,4 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   showSlide(currentSlide);
+
+  // BURGER
+
+  const burger = document.getElementById("burger");
+
+  burger.addEventListener("click", function () {
+    document.querySelector(".header").classList.toggle("open");
+  });
 });

@@ -51,9 +51,10 @@ section {
   /* flex-wrap: wrap; */
 }
 
+/* BUTTONS  */
+
 .img-container,
 .img-cargo {
-  /* width: 35%; */
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -203,6 +204,18 @@ section {
   &::before {
     width: 100%;
   }
+}
+
+.spacecover {
+  opacity: 0;
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 /* SECTION 1 */
@@ -361,6 +374,7 @@ label {
   background-color: #282829;
   color: #fff;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .overlay-container {
@@ -821,6 +835,90 @@ footer {
   .prev,
   .next {
     max-width: 3rem;
+  }
+
+  .burger {
+    z-index: 999;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    width: 2rem;
+    height: 1.5rem;
+    transition: transform 0.5s;
+    margin-right: 1rem;
+  }
+
+  .burger span {
+    height: 0.15rem;
+    width: 100%;
+    transform: scale(1);
+    /* background-color: rosybrown; */
+    background-color: white;
+  }
+
+  .burger::before,
+  .burger::after {
+    content: " ";
+    position: absolute;
+    height: 0.15rem;
+    width: 100%;
+    /* background-color: rosybrown; */
+    background-color: white;
+  }
+
+  .burger::before {
+    top: 0;
+  }
+
+  .burger::after {
+    bottom: 0;
+  }
+
+  .header.open .burger {
+    transform: rotate(90deg);
+  }
+
+  .header.open .spacecover {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: all;
+  }
+
+  .nav {
+    /* position: fixed; */
+    z-index: 998;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    transition: transform 0.5s, visibility 0.5s;
+    transform: translateX(100%);
+  }
+
+  .header.open .nav {
+    transform: translateX(0%);
+    visibility: visible;
+  }
+  .nav > ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav > ul > li {
+    margin-bottom: 2rem;
+  }
+
+  .nav > ul > li > a {
+    font-size: 3rem;
   }
 }
 
