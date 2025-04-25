@@ -18,19 +18,22 @@
         <div class="logo logo-top">
           <a> SafeHarbor</a>
         </div>
+
         <!-- burger  -->
         <div class="burger" id="burger"><span></span></div>
-        <div class="spacecover"></div>
         <!-- spacecover  -->
+        <div class="spacecover"></div>
+
         <nav class="nav">
           <ul>
-            <li><a href="">Cargo</a></li>
-            <li><a href="">Construction</a></li>
-            <li><a href="">Corporate</a></li>
+            <li><a href="#order">Cargo</a></li>
+            <li><a href="#order">Construction</a></li>
+            <li><a href="#corp">Corporate</a></li>
+            <li><a href="#contact">Contacts</a></li>
           </ul>
         </nav>
       </header>
-      <section class="first">
+      <section class="first" name="first">
         <div class="supply">
           <h1>Security for your future</h1>
           <h2>
@@ -52,7 +55,7 @@
               <strong>$10000 per month: 24/7 manager and lawyer</strong>
             </li>
           </ul>
-          <div class="order top">
+          <div class="order top" id="order">
             <a
               href="mailto:corp@safeharbor.com"
               target="_blank"
@@ -134,7 +137,7 @@
           <img src="./assets/images/sea3.png" alt="sea" />
         </div>
       </section>
-      <section class="third">
+      <section class="third" id="corp">
         <div class="form">
           <div class="news">
             <h2>
@@ -153,7 +156,9 @@
                 <input type="checkbox" name="privacy" required /> I accept the
                 privacy policy
               </label>
-              <button class="submit" type="submit">SUBMIT FORM</button>
+              <button class="submit" type="submit" title="submit to subscribe">
+                SUBMIT FORM
+              </button>
             </form>
           </div>
           <div class="overlay-container">
@@ -202,7 +207,7 @@
           </ul>
         </div>
 
-        <div class="footer-info">
+        <div class="footer-info" id="contact">
           <div class="footer-social">
             <div class="logo logo-bottom item">
               <a> SafeHarbor</a>
