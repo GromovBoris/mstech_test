@@ -2,40 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   // HEADER HEIGHT&MARGIN
 
   const header = document.querySelector(".header");
-  const headerHeight = header.offsetHeight;
   const logo = document.querySelector(".logo");
   const nav = document.querySelector(".nav");
 
-  // header.style.marginTop = `-${headerHeight}px`;
-
-  // function getMargin() {
-  //   if (window.innerWidth > 800) {
-  //     const navWidth = nav.offsetWidth;
-  //     logo.style.marginRight = `${navWidth}px`;
-  //   } else {
-  //     resetMargin();
-  //   }
-  // }
-
-  // function resetMargin() {
-  //   logo.style.marginRight = "";
-  // }
-
-  function headerScroll() {
-    window.pageYOffset > headerHeight
-      ? header.classList.add("sticky")
-      : // , getMargin()
-        header.classList.remove("sticky");
-    // , resetMargin()
+  function updateHeaderHeight() {
+    const headerHeight = header.offsetHeight;
+    header.style.marginTop = `-${headerHeight}px`;
   }
 
-  // function headerResize() {
-  //   if (header.classList.contains("sticky")) {
-  //     getMargin();
-  //   }
-  // }
+  function headerScroll() {
+    const headerHeight = header.offsetHeight;
+    if (window.pageYOffset > headerHeight) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
 
+  updateHeaderHeight();
   window.addEventListener("scroll", headerScroll);
+  window.addEventListener("resize", updateHeaderHeight);
 
   // IMG-CARGO HEIGHT
 
